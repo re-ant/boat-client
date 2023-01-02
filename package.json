@@ -29,5 +29,10 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.8.1"
+  },
+  "dependenciesMeta": {
+    "next@13.1.1": {
+      "unplugged": true
+    }
   }
 }

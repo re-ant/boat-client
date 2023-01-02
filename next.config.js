@@ -9,6 +9,10 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "app")],
     prependData: `@import "styles/_variables.scss"; @import "styles/_mixins.scss";`,
   },
+  webpack(config) {
+    config.resolve.modules.push(__dirname);
+    return config;
+  },
 };
 
 module.exports = nextConfig;

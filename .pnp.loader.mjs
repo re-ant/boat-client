@@ -1,10 +1,9 @@
 import { URL as URL$1, fileURLToPath, pathToFileURL } from 'url';
-import moduleExports, { Module } from 'module';
-
-import { EOL } from 'os';
-import assert from 'assert';
 import fs from 'fs';
 import path from 'path';
+import moduleExports, { Module } from 'module';
+import { EOL } from 'os';
+import assert from 'assert';
 
 const SAFE_TIME = 456789e3;
 

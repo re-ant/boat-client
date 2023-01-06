@@ -28,8 +28,15 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "postcss": "^8.4.21",
+    "postcss-scss": "^4.0.6",
     "prettier": "^2.8.1",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-recommended-scss": "^8.0.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-scss": "^4.3.0"
   },
   "dependenciesMeta": {
     "next@13.1.1": {

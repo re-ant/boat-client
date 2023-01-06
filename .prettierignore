@@ -1,2 +1,8 @@
+# yarn
 .yarn
 .pnp.*
+
+# style
+*.scss
+*.css
+*.less

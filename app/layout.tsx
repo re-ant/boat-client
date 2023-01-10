@@ -1,12 +1,16 @@
 import "styles/globals.scss";
 
+import AuthContext from "app/AuthContext";
+import { getServerSession } from "lib/next-auth";
 import React from "react";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en">
       {/*
@@ -14,7 +18,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <AuthContext session={session}>
+        <body>{children}</body>
+      </AuthContext>
     </html>
   );
 }

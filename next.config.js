@@ -6,8 +6,8 @@ const nextConfig = {
     appDir: true,
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "app")],
-    prependData: `@import "styles/_variables.scss"; @import "styles/_mixins.scss";`,
+    includePaths: [path.join(__dirname, "styles")],
+    prependData: `@use "variables.scss" as *; @use "mixins.scss" as *; @use "colors.scss" as *;`,
   },
   webpack(config) {
     config.resolve.modules.push(__dirname);

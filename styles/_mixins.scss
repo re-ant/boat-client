@@ -1,6 +1,5 @@
 /* 반응형 화면 크기 */
-$mobile: 576px;
-$desktop: 992px;
+$mobile: 767px;
 
 /* 반응형 레이아웃 */
 @mixin default {
@@ -8,13 +7,13 @@ $desktop: 992px;
 }
 
 @mixin mobile {
-  @media (min-width: $mobile) {
+  @media (max-width: $mobile) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $desktop) {
+  @media (min-width: $mobile + 1) {
     @content;
   }
 }

@@ -1,6 +1,7 @@
 import "styles/globals.scss";
 
 import AuthContext from "app/AuthContext";
+import Modals from "components/Modal/Modals";
 import { getServerSession } from "libs/auth";
 
 import localFont from "@next/font/local";
@@ -47,7 +48,11 @@ export default async function RootLayout({
     <html lang="en">
       <head />
       <AuthContext session={session}>
-        <body className={font.className}>{children}</body>
+        <body className={font.className}>
+          <div id="modal" />
+          <Modals />
+          {children}
+        </body>
       </AuthContext>
     </html>
   );

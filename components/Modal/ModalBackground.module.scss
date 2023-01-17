@@ -1,0 +1,14 @@
+/* 배경은 모바일/데스크탑 모두 전체 화면을 가진다. */
+@include default {
+  .background {
+    position: fixed;
+    z-index: $modal-z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,4 +1,4 @@
-import NoEnvironmentVariableError from "libs/error/NoEnvironmentVariableError";
+import { NoEnvironmentVariableError } from "libs/error";
 
 export const getEnv = (envName: string) => {
   const env = process.env[envName];

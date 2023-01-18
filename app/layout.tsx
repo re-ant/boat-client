@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import AuthContext from "app/AuthContext";
 import Modals from "components/Modal/Modals";
+import Navbar from "components/Navbar/Navbar";
 import { getServerSession } from "libs/auth";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -56,6 +57,7 @@ export default async function RootLayout({
         <body className={font.className}>
           <div id="modal" />
           <Modals />
+          <Navbar />
           {children}
         </body>
       </AuthContext>

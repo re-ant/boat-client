@@ -1,0 +1,15 @@
+@include default {
+  .contents {
+    margin: $margin-medium;
+  }
+}
+
+@include mobile {
+  .contents {
+  }
+}
+
+@include desktop {
+  .contents {
+  }
+}

@@ -1,10 +1,16 @@
 import "styles/globals.scss";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import AuthContext from "app/AuthContext";
 import Modals from "components/Modal/Modals";
+import Navbar from "components/Navbar/Navbar";
 import { getServerSession } from "libs/auth";
 
+import { config } from "@fortawesome/fontawesome-svg-core";
 import localFont from "@next/font/local";
+
+// FontAwesome
+config.autoAddCss = false;
 
 // Next13 폰트 최적화
 const font = localFont({
@@ -51,6 +57,7 @@ export default async function RootLayout({
         <body className={font.className}>
           <div id="modal" />
           <Modals />
+          <Navbar />
           {children}
         </body>
       </AuthContext>

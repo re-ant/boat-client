@@ -4,8 +4,7 @@ import CredentialsLogin from "components/AuthModal/CredentialsLogin";
 import SocialLogin from "components/AuthModal/SocialLogin";
 import Modal from "components/Modal/Modal";
 import ModalHeader from "components/Modal/ModalHeader";
-import React from "react";
-import { ModalComponentProps, ModalProps } from "types/modal";
+import { ModalComponentProps } from "types/modal";
 
 import styles from "./AuthModal.module.scss";
 
@@ -20,9 +19,11 @@ export default function AuthModal({ onClose }: Props) {
           onClose: onClose,
         }}
       />
-      <div className={styles["contents"]}>
-        <CredentialsLogin />
-        <SocialLogin />
+      <div className={styles["container"]}>
+        <div className={styles["contents"]}>
+          <CredentialsLogin />
+          <SocialLogin />
+        </div>
       </div>
     </Modal>
   );

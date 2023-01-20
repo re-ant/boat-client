@@ -1,3 +1,6 @@
+@use "./colors";
+@use "./animations";
+
 /* 반응형 화면 크기 */
 $mobile: 767px;
 
@@ -15,5 +18,56 @@ $mobile: 767px;
 @mixin desktop {
   @media (min-width: $mobile + 1) {
     @content;
+  }
+}
+
+@mixin input-text($font-size) {
+  input[type=text] {
+    padding: 1rem;
+    border: none;
+    border-radius: 0px;
+    color: colors.$color-black;
+    font-family: var(--spoqa-han-sans);
+    font-size: $font-size;
+    font-weight: 200;
+    line-height: $font-size;
+    outline: colors.$color-black solid 1px;
+    outline-offset: -1px;
+
+    &:focus {
+      outline: colors.$color-primary solid 2px;
+      outline-offset: -2px;
+    }
+    &::placeholder {
+      color: colors.$color-placeholder;
+      font-family: var(--spoqa-han-sans);
+      font-size: $font-size;
+      font-weight: 400;
+    }
+  }
+}
+
+@mixin primary-button($font-size) {
+  button {
+    padding: 1rem;
+    border: none;
+    border-radius: 0px;
+    background-color: colors.$color-primary;
+    color: colors.$color-white;
+    font-family: var(--spoqa-han-sans);
+    font-size: $font-size;
+
+    &:hover {
+      animation: 500ms bg-primary-dark;
+      background-color: colors.$color-primary-dark;
+    }
+    &:active {
+      animation: 50ms btn-click-in;
+      transform: scale(0.99);
+    }
+    &:not(:active) {
+      animation: 50ms btn-click-out;
+      transform: scale(1);
+    }
   }
 }

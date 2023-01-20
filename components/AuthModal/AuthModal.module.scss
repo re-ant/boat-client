@@ -1,15 +1,35 @@
 @include default {
-  .contents {
+  .container {
     margin: $margin-medium;
+    margin-top: calc($margin-medium + $margin-large);
+  }
+  .contents {
+    display: flex;
+    flex-direction: column;
+    gap: $margin-large;
   }
 }
 
 @include mobile {
+  .container {
+    width: auto;
+    height: auto;
+  }
   .contents {
+    width: 100%;
+    height: 100%;
   }
 }
 
 @include desktop {
+  .container {
+    width: 50rem; /* 500px */
+    height: auto;
+  }
   .contents {
+    width: 35rem;
+    /* 가로 가운데 정렬 */
+    margin-right: auto;
+    margin-left: auto;
   }
 }

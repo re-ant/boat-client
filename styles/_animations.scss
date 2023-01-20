@@ -1,0 +1,29 @@
+@use "./colors";
+
+/* 버튼 클릭 */
+@keyframes btn-click-in {
+  from {
+    transform: scale(1.0);
+  }
+  to {
+    transform: scale(0.99);
+  }
+}
+@keyframes btn-click-out {
+  from {
+    transform: scale(0.99);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* 배경 색 변경 */
+@keyframes bg-primary-dark {
+  from {
+    background-color: colors.$color-primary;
+  }
+  to {
+    background-color: colors.$color-primary-dark;
+  }
+}

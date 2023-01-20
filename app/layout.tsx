@@ -41,6 +41,8 @@ const font = localFont({
       style: "normal",
     },
   ],
+  variable: "--spoqa-han-sans",
+  display: "swap",
 });
 
 export default async function RootLayout({

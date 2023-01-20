@@ -1,5 +1,15 @@
 const path = require("path");
 
+/* @import 구문 없이 사용할 스타일시트 파일 추가 */
+const globalCssImport = [
+  "variables.scss",
+  "mixins.scss",
+  "colors.scss",
+  "animations.scss",
+]
+  .map((css) => `@use "${css}" as *;`)
+  .join("");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -7,7 +17,7 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
-    prependData: `@use "variables.scss" as *; @use "mixins.scss" as *; @use "colors.scss" as *;`,
+    prependData: globalCssImport,
   },
   webpack(config) {
     config.resolve.modules.push(__dirname);

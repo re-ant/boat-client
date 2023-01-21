@@ -2,7 +2,7 @@ import "styles/globals.scss";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import AuthContext from "app/AuthContext";
-import Modals from "components/Modal/Modals";
+import Modals from "components/common/Modal/Modals";
 import Navbar from "components/Navbar/Navbar";
 import { getServerSession } from "libs/auth";
 

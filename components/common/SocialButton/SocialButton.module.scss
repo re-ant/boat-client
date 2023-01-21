@@ -1,0 +1,44 @@
+@include default {
+  .social-button {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: $color-white;
+    color: $color-black;
+    gap: 1rem;
+    outline-color: $color-black;
+    outline-offset: -1px;
+    outline-style: solid;
+    outline-width: 1px;
+
+    .divider {
+      width: 0.5px;
+      height: 2rem;
+      background-color: $color-black;
+    }
+
+    .text-content {
+      height: fit-content;
+      margin: 0 auto;
+      font-size: $font-normal;
+
+      /* div 텍스트 드래그 방지 */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      animation: 50ms btn-click-in;
+      transform: scale(0.99);
+    }
+    &:not(:active) {
+      animation: 50ms btn-click-out;
+      transform: scale(1);
+    }
+  }
+}

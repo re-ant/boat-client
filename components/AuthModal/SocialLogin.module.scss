@@ -1,0 +1,15 @@
+@include default {
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: $font-small;
+  }
+  .title {
+    font-size: $font-medium;
+    font-weight: 500;
+  }
+  .subtitle {
+    font-size: $font-normal;
+    font-weight: 200;
+  }
+}

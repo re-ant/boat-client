@@ -1,12 +1,12 @@
 @include default {
   .container {
     margin: $margin-medium;
-    margin-top: calc($margin-medium + $margin-large);
+    margin: calc($margin-medium + $margin-large) $margin-medium;
   }
   .contents {
     display: flex;
     flex-direction: column;
-    gap: $margin-large;
+    gap: calc($margin-medium + $margin-large);
   }
 }
 

@@ -1,4 +1,3 @@
-import { API_SERVER_URL } from "configs/env.server";
 import { NoCredentialError } from "libs/error";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -32,13 +31,6 @@ const credentialsProvider = CredentialsProvider({
   async authorize(credentials) {
     try {
       const { email, password } = parseCredentials(credentials);
-
-      // const res = await fetch(`${API_SERVER_URL}/auth/credentials`, {
-      //   method: "POST",
-      //   body: JSON.stringify({ id, password }),
-      //   headers: { "Content-Type": "application/json" },
-      // });
-      // const user = await res.json();
 
       const user = {
         id: 1,

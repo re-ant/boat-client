@@ -3,7 +3,7 @@
 import AuthModal from "components/AuthModal/AuthModal";
 import { signOut, useSession } from "next-auth/react";
 import { useModalAction } from "store/useModalStore";
-import EventType from "types/event";
+import EventType from "types/Event";
 
 import style from "./Profile.module.scss";
 

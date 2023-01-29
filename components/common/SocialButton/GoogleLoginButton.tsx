@@ -3,7 +3,7 @@
 import SocialButton from "components/common/SocialButton/SocialButton";
 import Image from "next/image";
 import React from "react";
-import EventType from "types/event";
+import EventType from "types/Event";
 
 export default function GoogleLoginButton() {
   const backgroundColor = "#FFFFFF";

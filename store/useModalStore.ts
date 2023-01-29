@@ -1,4 +1,4 @@
-import { ModalComponent, ModalContext, ModalProps } from "types/modal";
+import { ModalComponent, ModalContext, ModalProps } from "types/Modal";
 import { create } from "zustand";
 
 interface ModalState {

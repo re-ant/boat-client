@@ -1,6 +1,6 @@
 "use client";
 
-import EventType from "types/event";
+import EventType from "types/Event";
 
 import styles from "./SocialButton.module.scss";
 

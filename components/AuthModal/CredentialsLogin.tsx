@@ -1,16 +1,32 @@
 "use client";
 
 import useInput from "hooks/useInput";
-import EventType from "types/event";
+import { apiRequest, isAxiosError } from "libs/ajax";
+import EventType from "types/Event";
 
 import styles from "./CredentialsLogin.module.scss";
 
 export default function CredentialsLogin() {
   const { input: email, changeHandler: idChangeHandler } = useInput();
 
-  const formSubmitHandler: EventType<"form", "onSubmit"> = (e) => {
+  const formSubmitHandler: EventType<"form", "onSubmit"> = async (e) => {
     e.preventDefault();
-    console.log(email);
+
+    try {
+      const body = { email };
+      const isProperEmail: boolean = await apiRequest.post(
+        "/v1/auth/verify-email",
+        body,
+      );
+      return isProperEmail; // 로그인 로직
+    } catch (e) {
+      if (isAxiosError(e) && e.code === "401") {
+        alert("존재하지 않는 이메일입니다.");
+        return false; // 회원가입 로직
+      }
+      alert(e);
+      return false;
+    }
   };
 
   return (

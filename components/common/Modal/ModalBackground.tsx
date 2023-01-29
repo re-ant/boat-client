@@ -1,7 +1,7 @@
 "use client";
 
 import { PropsWithChildren } from "react";
-import EventType from "types/event";
+import EventType from "types/Event";
 
 import styles from "./ModalBackground.module.scss";
 

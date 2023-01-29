@@ -1,28 +1,41 @@
 "use client";
 
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./ModalHeader.module.scss";
 
 interface Props {
   title: string;
+  leftButton?: {
+    active: boolean;
+    onClick: Function;
+  };
   rightButton?: {
-    onClose: Function;
+    active: boolean;
+    onClick: Function;
   };
 }
 
-export default function ModalHeader({ title, rightButton }: Props) {
+export default function ModalHeader({ title, leftButton, rightButton }: Props) {
   return (
     <div className={styles.header}>
-      <a></a>
+      <a>
+        {leftButton?.active && (
+          <FontAwesomeIcon
+            className={styles.button}
+            icon={faChevronLeft}
+            onClick={() => leftButton.onClick()}
+          />
+        )}
+      </a>
       <p>{title}</p>
       <a>
-        {rightButton && (
+        {rightButton?.active && (
           <FontAwesomeIcon
             className={styles.button}
             icon={faXmark}
-            onClick={() => rightButton.onClose()}
+            onClick={() => rightButton.onClick()}
           />
         )}
       </a>

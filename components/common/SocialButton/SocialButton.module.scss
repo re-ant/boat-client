@@ -22,11 +22,7 @@
       margin: 0 auto;
       font-size: $font-normal;
 
-      /* div 텍스트 드래그 방지 */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none
+      @include disable-drag;
     }
 
     &:hover {

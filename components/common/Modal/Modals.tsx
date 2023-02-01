@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React from "react";
 import { useModalAction, useModals } from "store/useModalStore";
 
 export default function Modals() {

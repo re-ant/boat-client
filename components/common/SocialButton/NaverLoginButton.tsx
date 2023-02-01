@@ -1,6 +1,7 @@
 "use client";
 
 import SocialButton from "components/common/SocialButton/SocialButton";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 import EventType from "types/Event";
@@ -17,8 +18,8 @@ export default function NaverLoginButton() {
       priority
     />
   );
-  const onClick: EventType<"div", "onClick"> = (e) => {
-    console.log("네이버 로그인");
+  const onClick: EventType<"div", "onClick"> = async () => {
+    await signIn("naver", { redirect: false });
   };
 
   return (

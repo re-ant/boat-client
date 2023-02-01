@@ -41,7 +41,7 @@ const credentialsProvider = CredentialsProvider({
         },
         { headers: { ContentType: "application/json" } },
       );
-      return data.sessionId;
+      return { user: data.id } as any;
     } catch (e) {
       throw e;
     }

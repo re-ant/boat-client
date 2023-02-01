@@ -1,30 +1,43 @@
 "use client";
 
-import CredentialsLogin from "components/AuthModal/CredentialsLogin";
-import SocialLogin from "components/AuthModal/SocialLogin";
+import AuthModalContents from "components/AuthModal/AuthModalContents";
+import useAuthModalAction from "components/AuthModal/hooks/useAuthModalAction";
+import useAuthModalState from "components/AuthModal/hooks/useAuthModalState";
+import useReset from "components/AuthModal/hooks/useReset";
 import Modal from "components/common/Modal/Modal";
 import ModalHeader from "components/common/Modal/ModalHeader";
-import { ModalComponentProps } from "types/modal";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import { ModalComponentProps } from "types/Modal";
 
-import styles from "./AuthModal.module.scss";
+export default function AuthModal({ onClose }: ModalComponentProps) {
+  const { status } = useSession();
+  const { title, history, currentPage } = useAuthModalState();
+  const { showPrevPage } = useAuthModalAction();
+  const { reset } = useReset();
 
-interface Props extends ModalComponentProps {}
+  // 로그인 상태 변경을 감지하고, 로그인 상태일 경우 모달 종료
+  useEffect(() => {
+    if (status === "authenticated") {
+      onClose(); // 모달 닫기
+      reset(); // 모달 정보 초기화
+    }
+  }, [status]);
 
-export default function AuthModal({ onClose }: Props) {
   return (
     <Modal onClose={onClose}>
       <ModalHeader
-        title={"로그인"}
+        title={title}
+        leftButton={{
+          active: 1 < history.length,
+          onClick: showPrevPage,
+        }}
         rightButton={{
-          onClose: onClose,
+          active: true,
+          onClick: onClose,
         }}
       />
-      <div className={styles["container"]}>
-        <div className={styles["contents"]}>
-          <CredentialsLogin />
-          <SocialLogin />
-        </div>
-      </div>
+      <AuthModalContents page={currentPage} />
     </Modal>
   );
 }

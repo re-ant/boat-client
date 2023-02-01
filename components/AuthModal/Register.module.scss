@@ -1,5 +1,5 @@
 @include default {
-  .credentials-login {
+  .register {
     display: flex;
     flex-direction: column;
 
@@ -9,6 +9,7 @@
   .title {
     font-size: $font-medium;
     font-weight: 500;
+    white-space: pre-line;
   }
   .subtitle {
     font-size: $font-normal;
@@ -28,19 +29,11 @@
       font-weight: 400;
     }
   }
-  .register-btn {
-    p {
-      @include disable-drag;
-      width: fit-content;
-      float: right;
-      font-size: $font-normal;
-      font-weight: 300;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      &:hover {
-        cursor: pointer;
-        font-weight: 400;
-      }
-    }
+}
+
+@include mobile {
+  .title {
+    /* 단어 기준으로 줄바꿈 */
+    word-break: keep-all;
   }
 }

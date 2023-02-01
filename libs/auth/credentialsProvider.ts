@@ -1,3 +1,4 @@
+import { apiRequest } from "libs/ajax";
 import { NoCredentialError } from "libs/error";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -29,21 +30,20 @@ const credentialsProvider = CredentialsProvider({
     password: { label: "password", type: "password" },
   },
   async authorize(credentials) {
+    const { email, password } = parseCredentials(credentials);
+
     try {
-      const { email, password } = parseCredentials(credentials);
-
-      const user = {
-        id: 1,
-        name: "J Smith",
-        email: "jsmith@example.com",
-      } as any;
-
-      if (user) {
-        return user;
-      }
-      return user;
+      const { data } = await apiRequest.post(
+        "/v1/auth/login",
+        {
+          email,
+          password,
+        },
+        { headers: { ContentType: "application/json" } },
+      );
+      return data.sessionId;
     } catch (e) {
-      return null;
+      throw e;
     }
   },
 });

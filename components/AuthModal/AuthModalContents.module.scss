@@ -1,6 +1,5 @@
 @include default {
   .container {
-    margin: $margin-medium;
     margin: calc($margin-medium + $margin-large) $margin-medium;
   }
   .contents {
@@ -27,7 +26,8 @@
     height: auto;
   }
   .contents {
-    width: 35rem;
+    width: 35rem; /* 350px */
+    min-height: 45.6rem; /* 456px */
     /* 가로 가운데 정렬 */
     margin-right: auto;
     margin-left: auto;

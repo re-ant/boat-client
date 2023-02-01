@@ -21,8 +21,8 @@ $mobile: 767px;
   }
 }
 
-@mixin input-text($font-size) {
-  input[type=text] {
+@mixin input($font-size) {
+  input {
     padding: 1rem;
     border: none;
     border-radius: 0px;
@@ -70,4 +70,12 @@ $mobile: 767px;
       transform: scale(1);
     }
   }
+}
+
+/* div 텍스트 드래그 방지 */
+@mixin disable-drag {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
 }
